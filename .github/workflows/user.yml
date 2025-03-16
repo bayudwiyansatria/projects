@@ -2,7 +2,7 @@ name: User Action
 on:
   push:
     branches:
-    - users/*
+      - users/*
 jobs:
   # Build
   build:
@@ -11,33 +11,33 @@ jobs:
       matrix:
         java-version: [1.7, 1.8]
         os: [ubuntu-latest, windows-latest, macos-latest]
-          
+
     runs-on: ${{ matrix.os }}
     steps:
-    # Installing Matrix OS Dependencies
-    - name: Install dependencies ${{ matrix.os }}
-      if: matrix.os == 'ubuntu-latest'
-      run: sudo apt-get update
-    - name: Install dependencies ${{ matrix.os }}
-      if: matrix.os == 'windows-latest'
-      run: choco install git
-    - name: Install dependencies ${{ matrix.os }}
-      if: matrix.os == 'macos-latest'
-      run: brew install git
-    # Get Sources
-    - name: Checkout sources control
-      uses: actions/checkout@v1
-    # Setup Environment
-    - name: Setup java version $ {{ matrix.java-version }} 
-      uses: actions/setup-java@v1
-      with:
-        java-version: ${{ matrix.java-version }}
-        java-package: jdk
-        architecture: x64
-    # Runner
-    - name: Running Environment
-      run: |
-        java -version
+      # Installing Matrix OS Dependencies
+      - name: Install dependencies ${{ matrix.os }}
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get update
+      - name: Install dependencies ${{ matrix.os }}
+        if: matrix.os == 'windows-latest'
+        run: choco install git
+      - name: Install dependencies ${{ matrix.os }}
+        if: matrix.os == 'macos-latest'
+        run: brew install git
+      # Get Sources
+      - name: Checkout sources control
+        uses: actions/checkout@v1
+      # Setup Environment
+      - name: Setup java version $ {{ matrix.java-version }}
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java-version }}
+          java-package: jdk
+          architecture: x64
+      # Runner
+      - name: Running Environment
+        run: |
+          java -version
   # Deployment
   deploy:
     name: Deploying
@@ -48,6 +48,6 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Test Environment
-      run : |
-        echo ${{ matrix.os }}
+      - name: Test Environment
+        run: |
+          echo ${{ matrix.os }}
