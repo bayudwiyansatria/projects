@@ -1,0 +1,21 @@
+name: Features
+
+on:
+  push:
+    branches:
+      - feature/**
+      - bugfix/**
+      - hotfix/**
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  secret-detection:
+    name: Secret Detection
+    uses: bayudwiyansatria/.github/.github/workflows/code-analysis-secret.yml@master
+    with:
+      SCAN_MODE: dir

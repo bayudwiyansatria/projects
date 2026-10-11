@@ -1,6 +1,17 @@
 # User-specific directory
-*.yaml
-*.yml
 
 # User-specific files
-.prettierignore
+
+# Dependencies and generated output
+node_modules/
+artifacts/
+coverage/
+dist/
+out/
+target/
+
+# Lockfiles and generated metadata
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+*.tsbuildinfo

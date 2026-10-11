@@ -1,0 +1,81 @@
+<!--
+Example only. Copy this file to MAJOR.MINOR.PATCH.md, replace every example value, and remove this comment before release.
+The release workflow may use the final Markdown file as the GitHub release body.
+-->
+
+# Release Notes
+
+## Version 1.0.0
+
+### 📅 Release Date
+
+2026-10-11
+
+### 📖 Overview
+
+Version 1.0.0 establishes the first supported release of the project. It provides the core request path, documented
+configuration, automated verification and the operational guidance required to run the service from a clean checkout.
+
+Describe the outcome a user receives, the problem the release solves, and the architectural decision that matters most.
+Do not repeat the commit list without explaining its effect.
+
+### 🚀 Features
+
+- **Primary capability:** Describe the new user-visible or operational behavior.
+- **Supported interface:** Name the command, API, package or workflow introduced by the release.
+- **Documentation:** Link the setup, architecture and operating guides needed to use the capability.
+
+### 🔧 Enhancements
+
+- **Reliability:** Explain a concrete improvement and the failure mode it prevents.
+- **Developer experience:** Describe tooling, diagnostics or setup improvements.
+
+### 🩹 Fixes
+
+- **Corrected behavior:** Explain what was wrong, what now happens, and what verifies the correction.
+
+### ⚠️ Breaking Changes
+
+None for this example. When a release breaks compatibility, name the affected surface and the required migration steps.
+
+### ✅ Verification
+
+```text
+format          passed
+lint            passed
+unit tests      passed
+build           passed
+deployment      not run
+```
+
+Use the project's real commands and results. Distinguish source inspection, local verification and deployed checks.
+
+### ⬆️ Upgrading
+
+This is the first supported release, so no earlier supported version requires migration. For later releases, list the
+upgrade order, configuration changes, data migrations, compatibility window and rollback path.
+
+### 🐛 Known Issues
+
+- No known issues in this example. Real releases retain known limitations with their impact and workaround.
+
+### 📦 Dependencies
+
+- Runtime: list direct runtime dependencies and important version constraints.
+- Build and test: list toolchain requirements that affect contributors or CI.
+
+### 📚 Documentation
+
+- Architecture: `docs/architecture/overview.md`
+- Local development: `docs/guide/local-development.md`
+- Deployment: `docs/guide/deployment.md`
+
+Replace these example paths with links to documents that exist in the generated repository.
+
+### 👥 Contributors
+
+- Bayu Dwiyan Satria
+
+### 🙏 Acknowledgments
+
+Thank contributors and upstream projects whose work materially supported the release.

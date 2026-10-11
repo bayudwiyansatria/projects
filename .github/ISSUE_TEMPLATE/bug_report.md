@@ -1,40 +1,38 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report a reproducible problem
 title: ""
-labels: ""
+labels: bug
 assignees: ""
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## Summary
 
-**To Reproduce**
-Steps to reproduce the behavior:
+Describe the problem and its impact in a few sentences.
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## Reproduction
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+1. Provide the smallest reproducible sequence.
+2. Include the command, input, or action used.
+3. Describe the observed result.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## Expected behavior
 
-**Desktop (please complete the following information):**
+Describe what should have happened and why.
 
-- OS: [e.g. iOS]
-- Browser [e.g. chrome, safari]
-- Version [e.g. 22]
+## Environment
 
-**Smartphone (please complete the following information):**
+- Repository version, tag, or commit:
+- Operating system:
+- Runtime and version, if applicable:
+- Browser and version, if applicable:
 
-- Device: [e.g. iPhone6]
-- OS: [e.g. iOS8.1]
-- Browser [e.g. stock browser, safari]
-- Version [e.g. 22]
+## Evidence
 
-**Additional context**
-Add any other context about the problem here.
+Include relevant logs, screenshots, or a minimal reproduction. Remove credentials, tokens, private infrastructure
+details, and personal data.
+
+## Additional context
+
+Add related issues, recent changes, or other useful context. Use the private process in `SECURITY.md` instead of this
+form for suspected vulnerabilities.

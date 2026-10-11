@@ -1,7 +1,15 @@
 * text=auto eol=lf
 
+*.bat text eol=crlf
+*.cmd text eol=crlf
 *.md diff=markdown
 
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+
 /.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
+/AGENTS.md export-ignore

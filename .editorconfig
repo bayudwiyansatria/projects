@@ -7,16 +7,15 @@ indent_size = 2
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
-ij_yaml_indent_sequence_value = false
 
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{yml,yaml}]
-indent_size = 2
-
-[docker-compose.yml]
+[*.py]
 indent_size = 4
 
-[pom.xml]
-indent_size = 2
+[*.{java,kt,kts}]
+indent_size = 4
+
+[Makefile]
+indent_style = tab

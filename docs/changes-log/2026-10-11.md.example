@@ -1,0 +1,51 @@
+<!--
+Example only. Copy this file to YYYY-MM-DD.md, replace the title and content, and remove this comment.
+A change record explains one substantial work session. Record evidence, not intentions presented as completed work.
+-->
+
+# 2026-10-11: Harden the request boundary
+
+## Why it changed
+
+Requests reached the service without one consistent validation boundary. Each handler decoded its own fields, returned
+a different error shape, and logged different context. That made malformed input difficult to diagnose and made a new
+route copy behavior that was already drifting.
+
+This work puts validation before the application service so handlers receive one trusted shape and callers receive one
+documented failure contract.
+
+## What changed
+
+The request model now owns field constraints and normalization. Middleware parses the request once, rejects unsupported
+content types, and returns the shared error envelope before calling the service. Existing handlers consume the parsed
+model instead of reading the raw request independently.
+
+Tests cover missing, malformed and normalized values as well as the unchanged success path. The interface guide records
+the response status, error code and payload so callers do not have to infer the contract from tests.
+
+## Decisions
+
+- Validation stays at the transport boundary; domain rules remain in the service layer.
+- Invalid input returns one stable error code and never includes the rejected value in logs.
+- Existing valid requests keep their response shape, so the change requires no caller migration.
+
+Alternatives considered were leaving validation in each handler or moving transport parsing into the service. The first
+keeps the drift, while the second couples domain behavior to HTTP.
+
+## Verification
+
+The completed review checked:
+
+- formatting and static analysis;
+- focused request-validation tests;
+- the complete unit test suite;
+- a local valid request and representative invalid requests; and
+- the interface documentation against the implemented response.
+
+Record commands and results here when they are important evidence. Do not claim a deployed check unless it actually ran
+against the applicable environment.
+
+## Follow-up
+
+None for this example. Real records keep unresolved work here with an issue, plan item or decision owner rather than
+silently presenting partial work as complete.

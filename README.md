@@ -1,91 +1,93 @@
-# Development and Operation
+# Projects
 
-![Platforms](https://img.shields.io/badge/%20Platforms-Windows%20/%20Linux-blue.svg?style=flat-square)
-[![License](https://img.shields.io/badge/%20Licence-MIT-green.svg?style=flat-square)](LICENSE)
-[![Code Of Conduct](https://img.shields.io/badge/Community-Code%20of%20Conduct-orange.svg?style=flat-square)](CODE_OF_CONDUCT.md)
-[![Support](https://img.shields.io/badge/Community-Support-red.svg?style=flat-square)](SUPPORT.md)
-[![Contributing](https://img.shields.io/badge/%20Community-Contribution-yellow.svg?style=flat-square)](CONTRIBUTING.md)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-Global Template Repository for Development and Operations Of Your Projects.
+A reusable repository template for development and operations projects. It provides collaboration files, repository
+hygiene, documentation examples, and a minimal automation baseline without choosing an application stack.
 
-## Table of Contents
+## Included baseline
 
-- [Dependencies](#dependencies)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Development](#development)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Versioning](#versioning)
-- [Authors](#authors)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+| Area               | Included                                                                      |
+| ------------------ | ----------------------------------------------------------------------------- |
+| Collaboration      | Contribution, conduct, support, security, issue, and pull-request guidance    |
+| Ownership          | A starter `CODEOWNERS` file that must be reviewed for each repository         |
+| Automation         | Feature and default-branch secret-detection workflows                         |
+| Maintenance        | GitHub Actions dependency updates and release-drafter configuration           |
+| Repository hygiene | EditorConfig, Git attributes, common ignore rules, MIT license, and changelog |
+| Documentation      | Template guidance plus change-log and release-note examples                   |
+| Agent guidance     | A root `AGENTS.md` describing how to maintain and adapt the template          |
 
-## Getting Started
+The template deliberately contains no language manifest, application source, build, test, publication, or deployment
+job. Add those only after selecting the project runtime and delivery model.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Use this template
 
-### Prerequisites
-
-What things you need to install the software and how to install them:
+Select **Use this template** on GitHub, or use the GitHub CLI:
 
 ```shell
-apt-get -y install git
+gh repo create OWNER/REPOSITORY \
+  --template bayudwiyansatria/projects \
+  --clone
 ```
 
-Or
+Choose the target repository's owner and visibility when prompted. A generated repository has independent history and
+does not automatically receive later changes from this template. The included workflow triggers use `main` as the
+default branch.
+
+## Adapt the generated repository
+
+Before product work begins:
+
+1. Rewrite `README.md` with the project's purpose, architecture, requirements, setup, commands, configuration, and
+   ownership.
+2. Rewrite `AGENTS.md` with verified module boundaries, working rules, and validation commands.
+3. Review `CODEOWNERS`, contribution guidance, support and security contacts, license, notice, and repository metadata.
+4. Select the runtime and commit its manifests and lockfiles. Review `.gitignore` before adding patterns so broader or
+   duplicate rules are not introduced.
+5. Use `main` as the default branch, or update every workflow trigger that names it.
+6. Extend the workflows with build and test jobs appropriate to the selected stack. Add release or deployment jobs only
+   after their artifacts, credentials, environments, and promotion behavior are defined.
+7. Add each committed package ecosystem to `.github/dependabot.yml`.
+8. Copy and rename the examples under `docs/changes-log/` and `docs/release-notes/`; do not edit the `.example` files as
+   if they were project history.
+9. Review branch protection, required checks, Actions permissions, environments, variables, and secrets.
+
+See the [repository template guide](docs/README.md) for the design boundaries and a more detailed adoption checklist.
+
+## Repository structure
+
+```text
+.github/              ownership, issue and pull-request templates, automation, and dependency updates
+docs/                 template guide and documentation examples
+AGENTS.md              instructions for agents working in this repository
+CHANGELOG.md           history of this repository
+CODE_OF_CONDUCT.md     community standards
+CONTRIBUTING.md        contribution workflow
+SECURITY.md            vulnerability reporting and supported-version policy
+SUPPORT.md             support channels and scope
+```
+
+## Validation
+
+This repository has no application build. Before proposing a template change, run:
 
 ```shell
-yum -y install git
+git diff --check
+git status --short
 ```
 
-### Installation
-
-A step-by-step series of examples that tell you how to get a development environment running:
-
-1. Clone this repository:
-
-   ```shell
-   git clone git@github.com:bayudwiyansatria/Development-And-Operations.git
-   ```
-
-## Development
-
-- _Release 1.0_: **2019, Nov**.
-
-## Usage
-
-Reference and programming instructional materials.
+Also parse changed YAML, verify changed relative Markdown links, and review workflow permissions and branch filters.
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Report security issues through the process in [SECURITY.md](SECURITY.md), not a
+public issue.
 
-Please make sure to update tests as appropriate.
+## Author
 
-Looking to contribute to our code but need some help? There's a few ways to get information:
-
-- Connect with us on [Twitter](https://twitter.com/bayudsatria)
-- Like us on [Facebook](https://facebook.com/PBayuDSatria)
-- Follow us on [LinkedIn](https://linkedin.com/in/bayudwiyansatria)
-- Subscribe to us on [YouTube](https://youtube.com/channel/UCihxWj1rtheK73mGdrf0OiA)
-- Log an issue here on GitHub
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/bayudwiyansatria/Development-And-Operations/tags).
-
-## Authors
-
-- **[Bayu Dwiyan Satria](https://github.com/bayudwiyansatria)** - _Initial work_
+[Bayu Dwiyan Satria](https://github.com/bayudwiyansatria)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+Licensed under the [MIT License](LICENSE).
